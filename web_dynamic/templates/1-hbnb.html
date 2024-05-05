@@ -37,15 +37,58 @@
 	  </div>
 	</div>
 	<div class="amenities">
-	  <h3>Amenities</h3>
-	  <h4>&nbsp;</h4>
-	  <div class="popover">
-	    <ul>
-	      {% for amenity in amenities %}
-	      <li><input type="checkbox" data-id="{{ amenity.id }}" data-name="{{ amenity.name }}" > {{ amenity.name }}</li>
-	      {% endfor %}
-	    </ul>
-	  </div>
+		<h3>Amenities</h3>
+		<!-- Add h4 tag to display checked amenities -->
+		<h4 id="selected-amenities">&nbsp;</h4>
+		<div class="popover">
+			<ul>
+				<!-- Existing amenities loop 
+				{% for amenity in amenities %}
+				<li>
+					<input type="checkbox" data-id="{{ amenity.id }}" data-name="{{ amenity.name }}">
+					{{ amenity.name }}
+				</li>
+				{% endfor %} -->
+				
+				<!-- New amenities -->
+				<li>
+					<input type="checkbox" data-id="24-hour-check-in" data-name="24-hour check in">
+					24-hour check in
+				</li>
+				<li>
+					<input type="checkbox" data-id="air-conditioning" data-name="Air conditioning">
+					Air conditioning
+				</li>
+				<li>
+					<input type="checkbox" data-id="breakfast" data-name="Breakfast">
+					Breakfast
+				</li>
+				<li>
+					<input type="checkbox" data-id="buzzer-wireless-intercom" data-name="Buzzer/Wireless intercom">
+					Buzzer/Wireless intercom
+				</li>
+				<li>
+					<input type="checkbox" data-id="cable-tv" data-name="Cable TV">
+					Cable TV
+				</li>
+				<li>
+					<input type="checkbox" data-id="carbon-monoxide-detector" data-name="Carbon monoxide detector">
+					Carbon monoxide detector
+				</li>
+				<li>
+					<input type="checkbox" data-id="cats" data-name="Cat(s)">
+					Cat(s)
+				</li>
+				<li>
+					<input type="checkbox" data-id="dogs" data-name="Dog(s)">
+					Dog(s)
+				</li>
+				<li>
+					<input type="checkbox" data-id="doorman" data-name="Doorman">
+					Doorman
+				</li>
+			</ul>
+		</div>
 	</div>
 	<button type="button">Search</button>
       </section>
