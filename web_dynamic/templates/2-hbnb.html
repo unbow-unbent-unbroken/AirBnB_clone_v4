@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../static/styles/4-common.css?{{ cache_id }}">
+    <link rel="stylesheet" type="text/css" href="../static/styles/3-header.css?{{ cache_id }}">
+    <link rel="stylesheet" type="text/css" href="../static/styles/3-footer.css?{{ cache_id }}">
+    <link rel="stylesheet" type="text/css" href="../static/styles/6-filters.css?{{ cache_id }}">
+    <link type="text/css" rel="stylesheet" href="../static/styles/8-places.css?{{ cache_id }}">
+    <link rel="icon" href="../static/images/icon.png?{{ cache_id }}"/>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="../static/scripts/2-hbnb.js?{{ cache_id }}"></script>
+    <title>HBnB</title>
+  </head>
+  <body>
+    <header>
+      <div class="logo"></div>
+    </header>
+    <div class="container">
+      <section class="filters">
+	<div class="locations">
+	  <h3>States</h3>
+	  <h4 id="selected-locations">&nbsp;</h4>
+	  <div class="popover">
+	    <ul>
+            <li>
+                <input type="checkbox" data-id="lagos" data-name="Lagos">
+                Lagos
+            </li>
+            <li>
+                <input type="checkbox" data-id="edo" data-name="Edo">
+                Edo
+            </li>
+            <li>
+                <input type="checkbox" data-id="ogun" data-name="Ogun">
+                Ogun
+            </li>
+            <li>
+                <input type="checkbox" data-id="delta" data-name="Delta">
+                Delta
+            </li>
+            <li>
+                <input type="checkbox" data-id="ekiti" data-name="Ekiti">
+                Ekiti
+            </li>
+            <li>
+                <input type="checkbox" data-id="oyo" data-name="Oyo">
+                Oyo
+            </li>
+            <li>
+                <input type="checkbox" data-id="ondo" data-name="Ondo">
+                Ondo
+            </li>
+            <li>
+                <input type="checkbox" data-id="rivers" data-name="Rivers">
+                Rivers
+            </li>
+            <li>
+                <input type="checkbox" data-id="imo" data-name="Imo">
+                Imo
+            </li>
+        </ul>
+	  </div>
+	</div>
+	<div class="amenities">
+		<h3>Amenities</h3>
+		<!-- Add h4 tag to display checked amenities -->
+		<h4 id="selected-amenities">&nbsp;</h4>
+		<div class="popover">
+			<ul>
+				<li>
+					<input type="checkbox" data-id="24-hour-check-in" data-name="24-hour check in">
+					24-hour check in
+				</li>
+				<li>
+					<input type="checkbox" data-id="air-conditioning" data-name="Air conditioning">
+					Air conditioning
+				</li>
+				<li>
+					<input type="checkbox" data-id="breakfast" data-name="Breakfast">
+					Breakfast
+				</li>
+				<li>
+					<input type="checkbox" data-id="buzzer-wireless-intercom" data-name="Buzzer/Wireless intercom">
+					Buzzer/Wireless intercom
+				</li>
+				<li>
+					<input type="checkbox" data-id="cable-tv" data-name="Cable TV">
+					Cable TV
+				</li>
+				<li>
+					<input type="checkbox" data-id="carbon-monoxide-detector" data-name="Carbon monoxide detector">
+					Carbon monoxide detector
+				</li>
+				<li>
+					<input type="checkbox" data-id="cats" data-name="Cat(s)">
+					Cat(s)
+				</li>
+				<li>
+					<input type="checkbox" data-id="dogs" data-name="Dog(s)">
+					Dog(s)
+				</li>
+				<li>
+					<input type="checkbox" data-id="doorman" data-name="Doorman">
+					Doorman
+				</li>
+			</ul>
+		</div>
+	</div>
+	<button type="button">Search</button>
+      </section>
+      <div class="placesh1"><h1>Places</h1></div>
+      <section class="places">
+	<!-- <h1>Places</h1> -->
+	{% for place in places %}
+	<article>
+	  <div class="title_box">
+	    <h2>{{ place.name }}</h2>
+	    <div class="price_by_night">${{ place.price_by_night }}</div>
+	  </div>
+	  <div class="information">
+	    <div class="max_guest">{{ place.max_guest }} Guest{% if place.max_guest != 1 %}s{% endif %}</div>
+            <div class="number_rooms">{{ place.number_rooms }} Bedroom{% if place.number_rooms != 1 %}s{% endif %}</div>
+            <div class="number_bathrooms">{{ place.number_bathrooms }} Bathroom{% if place.number_bathrooms != 1 %}s{% endif %}</div>
+	  </div>
+	  <div class="user">
+            <b>Owner:</b> {{ place.user.first_name }} {{ place.user.last_name }}
+          </div>
+          <div class="description">
+	    {{ place.description | safe }}
+          </div>
+	</article>
+    <article>
+        <div class="title_box">
+          <h2>{{ place.name }}</h2>
+          <div class="price_by_night">${{ place.price_by_night }}</div>
+        </div>
+        <div class="information">
+          <div class="max_guest">{{ place.max_guest }} Guest{% if place.max_guest != 1 %}s{% endif %}</div>
+              <div class="number_rooms">{{ place.number_rooms }} Bedroom{% if place.number_rooms != 1 %}s{% endif %}</div>
+              <div class="number_bathrooms">{{ place.number_bathrooms }} Bathroom{% if place.number_bathrooms != 1 %}s{% endif %}</div>
+        </div>
+        <div class="user">
+              <b>Owner:</b> {{ place.user.first_name }} {{ place.user.last_name }}
+            </div>
+            <div class="description">
+          {{ place.description | safe }}
+            </div>
+      </article>
+      <article>
+        <div class="title_box">
+          <h2>{{ place.name }}</h2>
+          <div class="price_by_night">${{ place.price_by_night }}</div>
+        </div>
+        <div class="information">
+          <div class="max_guest">{{ place.max_guest }} Guest{% if place.max_guest != 1 %}s{% endif %}</div>
+              <div class="number_rooms">{{ place.number_rooms }} Bedroom{% if place.number_rooms != 1 %}s{% endif %}</div>
+              <div class="number_bathrooms">{{ place.number_bathrooms }} Bathroom{% if place.number_bathrooms != 1 %}s{% endif %}</div>
+        </div>
+        <div class="user">
+              <b>Owner:</b> {{ place.user.first_name }} {{ place.user.last_name }}
+            </div>
+            <div class="description">
+          {{ place.description | safe }}
+            </div>
+      </article>
+	{% endfor %}
+      </section>
+    </div>
+    <footer>
+      <p>Holberton School</p>
+    </footer>
+  </body>
+</html>
